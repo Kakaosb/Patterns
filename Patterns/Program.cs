@@ -34,20 +34,20 @@ namespace Patterns
             {
                 case "br car":
                     routeStrategy = new CarStrategy();
-                    routeStrategy.BuildRoute("Проклятый старый дом", "Дом лесника");
                     break;
                 case "br walk":
                     routeStrategy = new WalkStrategy();
-                    routeStrategy.BuildRoute("Гараж Васька", "Красота на кончиках пальцев");
                     break;
                 case "br public":
                     routeStrategy = new PublicTransportStrategy();
-                    routeStrategy.BuildRoute("Остановка №1", "Небеса обитованные");
                     break;
                 default:
                     Console.WriteLine("Неизвестная команда");
                     break;
             }
+
+            if(routeStrategy != null)   
+                routeStrategy.BuildRoute("Проклятый старый дом", "Дом лесника");
 
             WaitCommand();
         }
