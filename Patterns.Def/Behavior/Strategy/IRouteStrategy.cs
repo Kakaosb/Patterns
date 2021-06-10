@@ -1,4 +1,4 @@
-﻿namespace Patterns.Behavior.Strategy
+﻿namespace Patterns.Def.Behavior.Strategy
 {
     public interface IRouteStrategy
     {

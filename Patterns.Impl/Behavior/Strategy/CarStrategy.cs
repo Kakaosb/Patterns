@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Patterns.Def.Behavior.Strategy;
+using System;
 
-namespace Patterns.Behavior.Strategy
+namespace Patterns.Impl.Behavior.Strategy
 {
     public class CarStrategy : IRouteStrategy
     {

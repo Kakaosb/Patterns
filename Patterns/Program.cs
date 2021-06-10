@@ -1,4 +1,5 @@
-﻿using Patterns.Behavior.Strategy;
+﻿using Patterns.Def.Behavior.Strategy;
+using Patterns.Impl.Behavior.Strategy;
 using System;
 
 namespace Patterns
