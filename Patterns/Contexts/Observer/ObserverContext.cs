@@ -40,6 +40,8 @@ namespace Patterns.Contexts
             {
                 _listeners.ForEach(el => _speaker.Unsubscribe(el));
             }
+
+            Console.WriteLine();
         }
     }
 }

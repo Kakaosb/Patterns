@@ -36,6 +36,8 @@ namespace Patterns.Contexts
 
             if (_routeStrategy != null)
                 _routeStrategy.BuildRoute("Проклятый старый дом", "Дом лесника");
+
+            Console.WriteLine();
         }
     }
 }

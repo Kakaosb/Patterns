@@ -13,6 +13,7 @@ namespace Patterns
                 @"Список паттернов: 
 - strat - стратегия
 - obs - наблюдатель
+- decor - декоратор
 ");
             WaitCommand();
         }
@@ -34,6 +35,9 @@ namespace Patterns
                     break;
                 case "obs":
                     context = new ObserverContext();
+                    break;
+                case "decor":
+                    context = new DecoratorContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
