@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Patterns.Contexts
+﻿namespace Patterns.Contexts
 {
     public interface IContext
     {

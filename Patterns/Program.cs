@@ -12,13 +12,14 @@ namespace Patterns
             Console.WriteLine(
                 @"Список паттернов: 
 - strat - стратегия
+- obs - наблюдатель
 ");
             WaitCommand();
         }
 
         private static void WaitCommand()
         {
-            Console.WriteLine("Введите паттерн");
+            Console.WriteLine("Введите паттерн (без -)");
 
             var command = Console.ReadLine();
             ExcecuteCommand(command);
@@ -30,6 +31,9 @@ namespace Patterns
             {
                 case "strat":
                     context = new StrategyContext(); 
+                    break;
+                case "obs":
+                    context = new ObserverContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");

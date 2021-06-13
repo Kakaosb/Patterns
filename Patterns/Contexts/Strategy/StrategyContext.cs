@@ -10,7 +10,7 @@ namespace Patterns.Contexts
 
         public void Excecute() {
             Console.WriteLine(@"
-Введите команду: 
+Введите команду (без -): 
 - br car - построение маршрута для личного авто
 - br walk - построение маршрута для прогулки
 - br public - построение маршрута для общественного транспорта
