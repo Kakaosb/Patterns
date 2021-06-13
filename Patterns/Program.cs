@@ -1,28 +1,24 @@
-﻿using Patterns.Def.Behavior.Strategy;
-using Patterns.Impl.Behavior.Strategy;
+﻿using Patterns.Contexts;
 using System;
 
 namespace Patterns
 {
     class Program
     {
-        private static IRouteStrategy routeStrategy;
+        private static IContext context;
 
         static void Main(string[] args)
         {
             Console.WriteLine(
-                @"What's upppp!
-Введите команду: 
-- br car - построение маршрута для личного авто
-- br walk - построение маршрута для прогулки
-- br public - построение маршрута для общественного транспорта
+                @"Список паттернов: 
+- strat - стратегия
 ");
             WaitCommand();
         }
 
         private static void WaitCommand()
         {
-            Console.WriteLine("Введите команду");
+            Console.WriteLine("Введите паттерн");
 
             var command = Console.ReadLine();
             ExcecuteCommand(command);
@@ -32,22 +28,15 @@ namespace Patterns
         {
             switch (command)
             {
-                case "br car":
-                    routeStrategy = new CarStrategy();
-                    break;
-                case "br walk":
-                    routeStrategy = new WalkStrategy();
-                    break;
-                case "br public":
-                    routeStrategy = new PublicTransportStrategy();
+                case "strat":
+                    context = new StrategyContext(); 
                     break;
                 default:
-                    Console.WriteLine("Неизвестная команда");
+                    Console.WriteLine("Неизвестный паттерн");
                     break;
             }
 
-            if(routeStrategy != null)   
-                routeStrategy.BuildRoute("Проклятый старый дом", "Дом лесника");
+            context.Excecute();
 
             WaitCommand();
         }
