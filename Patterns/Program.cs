@@ -14,6 +14,7 @@ namespace Patterns
 - strat - стратегия
 - obs - наблюдатель
 - decor - декоратор
+- single - одиночка
 ");
             WaitCommand();
         }
@@ -38,6 +39,9 @@ namespace Patterns
                     break;
                 case "decor":
                     context = new DecoratorContext();
+                    break;
+                case "single":
+                    context = new SingletonContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
