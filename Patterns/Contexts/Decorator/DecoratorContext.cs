@@ -1,4 +1,5 @@
-﻿using Patterns.Impl.Structural.Decorator;
+﻿using Patterns.Def.Structural.Decorator;
+using Patterns.Impl.Structural.Decorator;
 using System;
 
 namespace Patterns.Contexts
@@ -9,26 +10,26 @@ namespace Patterns.Contexts
         {
             Client client = new Client();
 
-            SimpleNotifier simpleNotifier = new SimpleNotifier();
+            Notifier notifier = new SimpleNotifier();
 
             Console.WriteLine();
             Console.WriteLine("Без обертки:");
-            client.SendReportToDeveloper(simpleNotifier);
+            client.SendReportToDeveloper(notifier);
 
             Console.WriteLine();
             Console.WriteLine("Обертка в email и sms:");
             Console.WriteLine();
 
-            EmailNotifier emailNotifier = new EmailNotifier(simpleNotifier);
-            SmsNotifier smsNotifier = new SmsNotifier(emailNotifier);
-            client.SendReportToDeveloper(smsNotifier);
+            notifier = new EmailNotifier(notifier);
+            notifier = new SmsNotifier(notifier);
+            client.SendReportToDeveloper(notifier);
 
             Console.WriteLine();
             Console.WriteLine("Обертка в email, sms и телеграм:");
             Console.WriteLine();
 
-            TelegramNotifier telegram = new TelegramNotifier(smsNotifier);
-            client.SendReportToDeveloper(telegram);
+            notifier = new TelegramNotifier(notifier);
+            client.SendReportToDeveloper(notifier);
 
             Console.WriteLine();
         }
