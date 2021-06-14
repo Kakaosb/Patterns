@@ -23,8 +23,11 @@ namespace Patterns.Impl.Creational.Singleton
             if (_instance == null) {
                 lock (_lock)
                 {
-                    _instance = new Singleton();
-                    _instance.Parent = who;
+                    if (_instance == null)
+                    {
+                        _instance = new Singleton();
+                        _instance.Parent = who;
+                    }
                 }
             }
 
