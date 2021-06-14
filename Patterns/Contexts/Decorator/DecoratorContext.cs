@@ -15,19 +15,19 @@ namespace Patterns.Contexts
             Console.WriteLine("Без обертки:");
             client.SendReportToDeveloper(simpleNotifier);
 
+            Console.WriteLine();
+            Console.WriteLine("Обертка в email и sms:");
+            Console.WriteLine();
+
             EmailNotifier emailNotifier = new EmailNotifier(simpleNotifier);
             SmsNotifier smsNotifier = new SmsNotifier(emailNotifier);
-
-            Console.WriteLine();
-            Console.WriteLine("Обертка в email и sms");
-            Console.WriteLine();
             client.SendReportToDeveloper(smsNotifier);
 
-            TelegramNotifier telegram = new TelegramNotifier(smsNotifier);
+            Console.WriteLine();
+            Console.WriteLine("Обертка в email, sms и телеграм:");
+            Console.WriteLine();
 
-            Console.WriteLine();
-            Console.WriteLine("Обертка в email, sms и телеграм");
-            Console.WriteLine();
+            TelegramNotifier telegram = new TelegramNotifier(smsNotifier);
             client.SendReportToDeveloper(telegram);
 
             Console.WriteLine();
