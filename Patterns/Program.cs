@@ -15,6 +15,7 @@ namespace Patterns
 - obs - наблюдатель
 - decor - декоратор
 - single - одиночка
+- proxy - заместитель
 ");
             WaitCommand();
         }
@@ -42,6 +43,9 @@ namespace Patterns
                     break;
                 case "single":
                     context = new SingletonContext();
+                    break;
+                case "proxy":
+                    context = new ProxyContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
