@@ -16,6 +16,7 @@ namespace Patterns
 - decor - декоратор
 - single - одиночка
 - proxy - заместитель
+- factor_m - фабричный метод
 ");
             WaitCommand();
         }
@@ -46,6 +47,9 @@ namespace Patterns
                     break;
                 case "proxy":
                     context = new ProxyContext();
+                    break;
+                case "factor_m":
+                    context = new FactoryMethodContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
