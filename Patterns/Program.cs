@@ -10,13 +10,14 @@ namespace Patterns
         static void Main(string[] args)
         {
             Console.WriteLine(
-                @"Список паттернов: 
+ @"Список паттернов: 
 - strat - стратегия
 - obs - наблюдатель
 - decor - декоратор
 - single - одиночка
 - proxy - заместитель
 - factor_m - фабричный метод
+- factor_a - абстрактная фабрика
 ");
             WaitCommand();
         }
@@ -50,6 +51,9 @@ namespace Patterns
                     break;
                 case "factor_m":
                     context = new FactoryMethodContext();
+                    break;
+                case "factor_a":
+                    context = new AbstractFactoryContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
