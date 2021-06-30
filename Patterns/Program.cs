@@ -18,6 +18,7 @@ namespace Patterns
 - proxy - заместитель
 - factor_m - фабричный метод
 - factor_a - абстрактная фабрика
+- command - команда
 ");
             WaitCommand();
         }
@@ -54,6 +55,9 @@ namespace Patterns
                     break;
                 case "factor_a":
                     context = new AbstractFactoryContext();
+                    break;
+                case "command":
+                    context = new CommandContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
