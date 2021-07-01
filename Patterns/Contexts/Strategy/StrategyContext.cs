@@ -1,12 +1,22 @@
 ﻿using Patterns.Def.Behavior.Strategy;
 using Patterns.Impl.Behavior.Strategy;
 using System;
+using System.Collections.Generic;
 
 namespace Patterns.Contexts
 {
     public class StrategyContext: IContext
     {
         private static IRouteStrategy _routeStrategy;
+
+        private static Dictionary<string, Func<IRouteStrategy>> _strategies =
+            new Dictionary<string, Func<IRouteStrategy>>
+            {
+                { "br car", () => new CarStrategy() },
+                { "br walk", () => new WalkStrategy() },
+                { "br public", () => new PublicTransportStrategy() }
+
+            };
 
         public void Excecute() {
             Console.WriteLine(@"
@@ -18,24 +28,14 @@ namespace Patterns.Contexts
 
             var command = Console.ReadLine();
 
-            switch (command)
+            if (_strategies.TryGetValue(command, out Func<IRouteStrategy> getRouteStrategyAction))
             {
-                case "br car":
-                    _routeStrategy = new CarStrategy();
-                    break;
-                case "br walk":
-                    _routeStrategy = new WalkStrategy();
-                    break;
-                case "br public":
-                    _routeStrategy = new PublicTransportStrategy();
-                    break;
-                default:
-                    Console.WriteLine("Неизвестная команда");
-                    break;
-            }
-
-            if (_routeStrategy != null)
+                _routeStrategy = getRouteStrategyAction();
                 _routeStrategy.BuildRoute("Проклятый старый дом", "Дом лесника");
+            }
+            else {
+                Console.WriteLine("Неизвестная команда");
+            }
 
             Console.WriteLine();
         }
