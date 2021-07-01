@@ -11,7 +11,7 @@ namespace Patterns.Impl.Behavior.Command
         {
             foreach (var command in commands)
             {
-                var res = command.Calc();
+                var res = command.Calc()?.ToString() ?? "похоже, что вы нарушили законы математики, но это не точно";
                 var info = command.GetArgumentValue();
 
                 var name = string.Empty;

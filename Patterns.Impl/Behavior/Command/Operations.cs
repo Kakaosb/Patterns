@@ -14,10 +14,7 @@ namespace Patterns.Impl.Behavior.Command
             _b = b;
         }
 
-        public virtual object Calc()
-        {
-            return 0;
-        }
+        public abstract int? Calc();
 
         public Tuple<int, int> GetArgumentValue() {
             return new Tuple<int, int>(_a, _b);
@@ -27,47 +24,64 @@ namespace Patterns.Impl.Behavior.Command
     [DisplayName("Сложение")]
     public class Sum : Operation, ICommand
     {
+        private int? _result;
+
         public Sum (int a, int b) : base(a, b) { }
 
-        public override object Calc()
+        public override int? Calc()
         {
-            return _a + _b;
+           if (_result == null)
+                _result = _a + _b;
+
+            return _result;
         }
     }
 
     [DisplayName("Вычитание")]
     public class Subtract : Operation, ICommand
     {
+        private int? _result;
+
         public Subtract (int a, int b) : base(a, b) { }
 
-        public override object Calc()
+        public override int? Calc()
         {
-            return _a - _b;
+            if (_result == null)
+                _result =  _a - _b;
+
+            return _result;
         }
     }
 
     [DisplayName("Умножение")]
     public class Multi : Operation, ICommand
     {
+        private int? _result;
+
         public Multi (int a, int b) : base(a, b) { }
 
-        public override object Calc()
+        public override int? Calc()
         {
-            return _a * _b;
+            if (_result == null)
+                _result = _a * _b;
+
+            return _result;
         }
     }
 
     [DisplayName("Деление")]
     public class Div : Operation, ICommand
     {
+        private int? _result;
+
         public Div (int a, int b) : base(a, b) { }
 
-        public override object Calc()
+        public override int? Calc()
         {
-            if (_b != 0)
-                return _a / _b;
-            else
-                return "NaN"; 
+            if (_result == null && _b != 0)
+                _result = _a / _b;
+
+            return _result;
         }
     }
 }
