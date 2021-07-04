@@ -19,6 +19,7 @@ namespace Patterns
 - factor_m - фабричный метод
 - factor_a - абстрактная фабрика
 - command - команда
+- adapter - адаптер
 ");
             WaitCommand();
         }
@@ -58,6 +59,9 @@ namespace Patterns
                     break;
                 case "command":
                     context = new CommandContext();
+                    break;
+                case "adapter":
+                    context = new AdapterContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
