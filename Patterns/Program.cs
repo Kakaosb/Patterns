@@ -20,6 +20,7 @@ namespace Patterns
 - factor_a - абстрактная фабрика
 - command - команда
 - adapter - адаптер
+- facade - фасад
 ");
             WaitCommand();
         }
@@ -62,6 +63,9 @@ namespace Patterns
                     break;
                 case "adapter":
                     context = new AdapterContext();
+                    break;
+                case "facade":
+                    context = new FacadeContext();
                     break;
                 default:
                     Console.WriteLine("Неизвестный паттерн");
