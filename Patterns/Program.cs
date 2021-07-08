@@ -13,17 +13,17 @@ namespace Patterns
         private static List<Pattern> _patterns =
          new List<Pattern>
          {
-             new Pattern() { Discription = "стратегия", GetContextAction = () => new StrategyContext(), Key = "strat" },
-             new Pattern() { Discription = "наблюдатель", GetContextAction = () => new ObserverContext(), Key = "obs" },
-             new Pattern() { Discription = "декоратор", GetContextAction = () => new DecoratorContext(), Key = "decor" },
-             new Pattern() { Discription = "одиночка", GetContextAction = () => new SingletonContext(), Key = "single" },
-             new Pattern() { Discription = "заместитель", GetContextAction = () => new ProxyContext(), Key = "proxy" },
-             new Pattern() { Discription = "фабричный метод", GetContextAction = () => new FactoryMethodContext(), Key = "factor_m" },
-             new Pattern() { Discription = "абстрактная фабрика", GetContextAction = () => new AbstractFactoryContext(), Key = "factor_a" },
-             new Pattern() { Discription = "команда", GetContextAction = () => new CommandContext(), Key = "command" },
-             new Pattern() { Discription = "адаптер", GetContextAction = () => new AdapterContext(), Key = "adapter" },
-             new Pattern() { Discription = "фасад",  GetContextAction = () => new FacadeContext(), Key = "facade" },
-             new Pattern() { Discription = "шаблонный метод", GetContextAction = () => new TemplateMethodContext(),  Key = "temp_m" }
+             new Pattern() { Discription = "Стратегия", GetContextAction = () => new StrategyContext(), Key = "strat" },
+             new Pattern() { Discription = "Наблюдатель", GetContextAction = () => new ObserverContext(), Key = "obs" },
+             new Pattern() { Discription = "Декоратор", GetContextAction = () => new DecoratorContext(), Key = "decor" },
+             new Pattern() { Discription = "Одиночка", GetContextAction = () => new SingletonContext(), Key = "single" },
+             new Pattern() { Discription = "Заместитель", GetContextAction = () => new ProxyContext(), Key = "proxy" },
+             new Pattern() { Discription = "Фабричный метод", GetContextAction = () => new FactoryMethodContext(), Key = "factor_m" },
+             new Pattern() { Discription = "Абстрактная фабрика", GetContextAction = () => new AbstractFactoryContext(), Key = "factor_a" },
+             new Pattern() { Discription = "Команда", GetContextAction = () => new CommandContext(), Key = "command" },
+             new Pattern() { Discription = "Адаптер", GetContextAction = () => new AdapterContext(), Key = "adapter" },
+             new Pattern() { Discription = "Фасад",  GetContextAction = () => new FacadeContext(), Key = "facade" },
+             new Pattern() { Discription = "Шаблонный метод", GetContextAction = () => new TemplateMethodContext(),  Key = "temp_m" }
          };
 
         static void Main(string[] args)
