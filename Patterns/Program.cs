@@ -1,11 +1,28 @@
 ﻿using Patterns.Contexts;
 using System;
+using System.Collections.Generic;
 
 namespace Patterns
 {
     class Program
     {
         private static IContext context;
+
+        private static Dictionary<string, Func<IContext>> _contexts =
+         new Dictionary<string, Func<IContext>>
+         {
+                { "strat", () => new StrategyContext() },
+                { "obs", () => new ObserverContext() },
+                { "decor", () => new DecoratorContext() },
+                { "single", () => new SingletonContext() },
+                { "proxy", () => new ProxyContext() },
+                { "factor_m", () => new FactoryMethodContext() },
+                { "factor_a", () => new AbstractFactoryContext() },
+                { "command", () => new CommandContext() },
+                { "adapter", () => new AdapterContext() },
+                { "decor", () => new FacadeContext() },
+                { "temp_m", () => new TemplateMethodContext() }
+         };
 
         static void Main(string[] args)
         {
@@ -21,6 +38,7 @@ namespace Patterns
 - command - команда
 - adapter - адаптер
 - facade - фасад
+- temp_m - шаблонный метод
 ");
             WaitCommand();
         }
@@ -35,44 +53,14 @@ namespace Patterns
 
         private static void ExcecuteCommand(string command)
         {
-            switch (command)
+            if (_contexts.TryGetValue(command, out Func<IContext> getRouteStrategyAction))
             {
-                case "strat":
-                    context = new StrategyContext(); 
-                    break;
-                case "obs":
-                    context = new ObserverContext();
-                    break;
-                case "decor":
-                    context = new DecoratorContext();
-                    break;
-                case "single":
-                    context = new SingletonContext();
-                    break;
-                case "proxy":
-                    context = new ProxyContext();
-                    break;
-                case "factor_m":
-                    context = new FactoryMethodContext();
-                    break;
-                case "factor_a":
-                    context = new AbstractFactoryContext();
-                    break;
-                case "command":
-                    context = new CommandContext();
-                    break;
-                case "adapter":
-                    context = new AdapterContext();
-                    break;
-                case "facade":
-                    context = new FacadeContext();
-                    break;
-                default:
-                    Console.WriteLine("Неизвестный паттерн");
-                    break;
+                context.Excecute();
             }
-
-            context.Excecute();
+            else
+            {
+                Console.WriteLine("Неизвестный паттерн");
+            }
 
             WaitCommand();
         }
