@@ -1,6 +1,8 @@
 ﻿using Patterns.Contexts;
+using Patterns.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Patterns
 {
@@ -8,38 +10,33 @@ namespace Patterns
     {
         private static IContext _context;
 
-        private static Dictionary<string, Func<IContext>> _contexts =
-         new Dictionary<string, Func<IContext>>
+        private static List<Pattern> _patterns =
+         new List<Pattern>
          {
-                { "strat", () => new StrategyContext() },
-                { "obs", () => new ObserverContext() },
-                { "decor", () => new DecoratorContext() },
-                { "single", () => new SingletonContext() },
-                { "proxy", () => new ProxyContext() },
-                { "factor_m", () => new FactoryMethodContext() },
-                { "factor_a", () => new AbstractFactoryContext() },
-                { "command", () => new CommandContext() },
-                { "adapter", () => new AdapterContext() },
-                { "facade", () => new FacadeContext() },
-                { "temp_m", () => new TemplateMethodContext() }
+             new Pattern() { Discription = "стратегия", GetContextAction = () => new StrategyContext(), Key = "strat" },
+             new Pattern() { Discription = "наблюдатель", GetContextAction = () => new ObserverContext(), Key = "obs" },
+             new Pattern() { Discription = "декоратор", GetContextAction = () => new DecoratorContext(), Key = "decor" },
+             new Pattern() { Discription = "одиночка", GetContextAction = () => new SingletonContext(), Key = "single" },
+             new Pattern() { Discription = "заместитель", GetContextAction = () => new ProxyContext(), Key = "proxy" },
+             new Pattern() { Discription = "фабричный метод", GetContextAction = () => new FactoryMethodContext(), Key = "factor_m" },
+             new Pattern() { Discription = "абстрактная фабрика", GetContextAction = () => new AbstractFactoryContext(), Key = "factor_a" },
+             new Pattern() { Discription = "команда", GetContextAction = () => new CommandContext(), Key = "command" },
+             new Pattern() { Discription = "адаптер", GetContextAction = () => new AdapterContext(), Key = "adapter" },
+             new Pattern() { Discription = "фасад",  GetContextAction = () => new FacadeContext(), Key = "facade" },
+             new Pattern() { Discription = "шаблонный метод", GetContextAction = () => new TemplateMethodContext(),  Key = "temp_m" }
          };
 
         static void Main(string[] args)
         {
-            Console.WriteLine(
- @"Список паттернов: 
-- strat - стратегия
-- obs - наблюдатель
-- decor - декоратор
-- single - одиночка
-- proxy - заместитель
-- factor_m - фабричный метод
-- factor_a - абстрактная фабрика
-- command - команда
-- adapter - адаптер
-- facade - фасад
-- temp_m - шаблонный метод
-");
+
+            var patternsList = string.Empty;
+
+            _patterns.ForEach(el => {
+                patternsList = $"{patternsList}- {el.Key} - {el.Discription}\n";
+            });
+
+            Console.WriteLine($"Список паттернов:\n{patternsList}");
+
             WaitCommand();
         }
 
@@ -53,9 +50,11 @@ namespace Patterns
 
         private static void ExcecuteCommand(string command)
         {
-            if (_contexts.TryGetValue(command, out Func<IContext> getContextAction))
+            var pattern = _patterns.FirstOrDefault(p => p.Key == command);
+            
+            if (pattern != null)
             {
-                _context = getContextAction();
+                _context = pattern.GetContextAction();
                 _context.Excecute();
             }
             else
