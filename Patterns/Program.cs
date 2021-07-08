@@ -6,7 +6,7 @@ namespace Patterns
 {
     class Program
     {
-        private static IContext context;
+        private static IContext _context;
 
         private static Dictionary<string, Func<IContext>> _contexts =
          new Dictionary<string, Func<IContext>>
@@ -20,7 +20,7 @@ namespace Patterns
                 { "factor_a", () => new AbstractFactoryContext() },
                 { "command", () => new CommandContext() },
                 { "adapter", () => new AdapterContext() },
-                { "decor", () => new FacadeContext() },
+                { "facade", () => new FacadeContext() },
                 { "temp_m", () => new TemplateMethodContext() }
          };
 
@@ -53,9 +53,10 @@ namespace Patterns
 
         private static void ExcecuteCommand(string command)
         {
-            if (_contexts.TryGetValue(command, out Func<IContext> getRouteStrategyAction))
+            if (_contexts.TryGetValue(command, out Func<IContext> getContextAction))
             {
-                context.Excecute();
+                _context = getContextAction();
+                _context.Excecute();
             }
             else
             {

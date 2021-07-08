@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Patterns.Def.Behavior.TemplateMethod;
+using Patterns.Impl.Behavior.TemplateMthod;
+using System;
 
 namespace Patterns.Contexts
 {
@@ -8,7 +8,25 @@ namespace Patterns.Contexts
     {
         public void Excecute()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Прекрасная милая девушка:");
+            Console.WriteLine();
+            Client.ClientCode(new SoftWoman());
+
+            Console.WriteLine();
+
+            Console.WriteLine("Потрясающая энергичная девушка:");
+            Console.WriteLine();
+            Client.ClientCode(new HardWoman());
+
+            Console.WriteLine();
+        }
+
+        class Client
+        {
+            public static void ClientCode(JustWomanAbstract abstractClass)
+            {
+                abstractClass.TemplateMethod();
+            }
         }
     }
 }
