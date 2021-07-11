@@ -23,7 +23,8 @@ namespace Patterns
              new Pattern() { Discription = "Команда", GetContextAction = () => new CommandContext(), Key = "command" },
              new Pattern() { Discription = "Адаптер", GetContextAction = () => new AdapterContext(), Key = "adapter" },
              new Pattern() { Discription = "Фасад",  GetContextAction = () => new FacadeContext(), Key = "facade" },
-             new Pattern() { Discription = "Шаблонный метод", GetContextAction = () => new TemplateMethodContext(),  Key = "temp_m" }
+             new Pattern() { Discription = "Шаблонный метод", GetContextAction = () => new TemplateMethodContext(),  Key = "temp_m" },
+             new Pattern() { Discription = "Итератор", GetContextAction = () => new IteratorContext(),  Key = "iterator" }
          };
 
         static void Main(string[] args)
