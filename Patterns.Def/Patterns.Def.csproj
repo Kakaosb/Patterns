@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Behavior\State\" />
     <Folder Include="Creational\Singleton\" />
     <Folder Include="Structural\Facade\" />
   </ItemGroup>
