@@ -27,7 +27,8 @@ namespace Patterns
              new Pattern() { Discription = "Итератор", GetContextAction = () => new IteratorContext(),  Key = "iterator" },
              new Pattern() { Discription = "Компоновщик", GetContextAction = () => new CompositeContext(),  Key = "composit" },
              new Pattern() { Discription = "Состояние", GetContextAction = () => new StateContext(),  Key = "state" },
-             new Pattern() { Discription = "Мост", GetContextAction = () => new BridgeContext(),  Key = "bridge" }
+             new Pattern() { Discription = "Мост", GetContextAction = () => new BridgeContext(),  Key = "bridge" },
+             new Pattern() { Discription = "Строитель", GetContextAction = () => new BuilderContext(),  Key = "builder" }
          };
 
         static void Main(string[] args)
