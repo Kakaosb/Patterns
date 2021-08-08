@@ -8,6 +8,7 @@
     <Folder Include="Behavior\State\" />
     <Folder Include="Creational\Singleton\" />
     <Folder Include="Creational\Builder\" />
+    <Folder Include="Creational\Prototype\" />
     <Folder Include="Structural\Facade\" />
   </ItemGroup>
 

@@ -28,7 +28,8 @@ namespace Patterns
              new Pattern() { Discription = "Компоновщик", GetContextAction = () => new CompositeContext(),  Key = "composit" },
              new Pattern() { Discription = "Состояние", GetContextAction = () => new StateContext(),  Key = "state" },
              new Pattern() { Discription = "Мост", GetContextAction = () => new BridgeContext(),  Key = "bridge" },
-             new Pattern() { Discription = "Строитель", GetContextAction = () => new BuilderContext(),  Key = "builder" }
+             new Pattern() { Discription = "Строитель", GetContextAction = () => new BuilderContext(),  Key = "builder" },
+             new Pattern() { Discription = "Прототип", GetContextAction = () => new PrototypeContext(),  Key = "prototype" }
          };
 
         static void Main(string[] args)
@@ -36,8 +37,10 @@ namespace Patterns
 
             var patternsList = string.Empty;
 
+            var i = 1;
+
             _patterns.ForEach(el => {
-                patternsList = $"{patternsList}- {el.Key} - {el.Discription}\n";
+                patternsList = $"{patternsList}{i++}. {el.Key} - {el.Discription}\n";
             });
 
             Console.WriteLine($"Список паттернов:\n{patternsList}");
@@ -47,7 +50,7 @@ namespace Patterns
 
         private static void WaitCommand()
         {
-            Console.WriteLine("Введите паттерн (без -)");
+            Console.WriteLine("Введите код паттерна");
 
             var command = Console.ReadLine();
             ExcecuteCommand(command);
