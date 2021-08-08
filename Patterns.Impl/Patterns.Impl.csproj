@@ -12,8 +12,4 @@
     <ProjectReference Include="..\Patterns.Def\Patterns.Def.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Creational\Builder\" />
-  </ItemGroup>
-
 </Project>
