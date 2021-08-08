@@ -9,7 +9,12 @@
     <Folder Include="Creational\Singleton\" />
     <Folder Include="Creational\Builder\" />
     <Folder Include="Creational\Prototype\" />
+    <Folder Include="Structural\Flyweight\" />
     <Folder Include="Structural\Facade\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
