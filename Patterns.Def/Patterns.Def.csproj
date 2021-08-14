@@ -5,12 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Behavior\State\" />
-    <Folder Include="Creational\Singleton\" />
+    <Compile Remove="Behavior\State\**" />
+    <Compile Remove="Creational\Singleton\**" />
+    <Compile Remove="Structural\Facade\**" />
+    <EmbeddedResource Remove="Behavior\State\**" />
+    <EmbeddedResource Remove="Creational\Singleton\**" />
+    <EmbeddedResource Remove="Structural\Facade\**" />
+    <None Remove="Behavior\State\**" />
+    <None Remove="Creational\Singleton\**" />
+    <None Remove="Structural\Facade\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Creational\Builder\" />
     <Folder Include="Creational\Prototype\" />
     <Folder Include="Structural\Flyweight\" />
-    <Folder Include="Structural\Facade\" />
   </ItemGroup>
 
   <ItemGroup>
