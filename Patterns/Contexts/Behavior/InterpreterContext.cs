@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Patterns.Impl.Behavior.Interpreter;
+using System;
 
 namespace Patterns.Contexts
 {
@@ -8,7 +7,12 @@ namespace Patterns.Contexts
     {
         public void Excecute()
         {
-            throw new NotImplementedException();
+            Context context = new Context();
+
+            var expression = new NonterminalExpression();
+            expression.Interpret(context);
+
+            Console.WriteLine();
         }
     }
 }
