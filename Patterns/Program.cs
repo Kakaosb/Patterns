@@ -33,7 +33,10 @@ namespace Patterns
              new Pattern() { Discription = "Легковес", GetContextAction = () => new FlyweightContext(),  Key = "flyweight" },
              new Pattern() { Discription = "Цепочка обязанностей", GetContextAction = () => new ChainContext(),  Key = "chain" },
              new Pattern() { Discription = "Посредник", GetContextAction = () => new MediatorContext(),  Key = "mediator" },
-             new Pattern() { Discription = "Посетитель", GetContextAction = () => new VisitorContext(),  Key = "visitor" }
+             new Pattern() { Discription = "Посетитель", GetContextAction = () => new VisitorContext(),  Key = "visitor" },
+             new Pattern() { Discription = "Снимок", GetContextAction = () => new MementoContext(),  Key = "memento" },
+             new Pattern() { Discription = "Интерпретатор", GetContextAction = () => new InterpreterContext(),  Key = "inter" },
+             new Pattern() { Discription = "Fluent Builder", GetContextAction = () => new FluentBuilderContext(),  Key = "fb" }
          };
 
         static void Main(string[] args)
