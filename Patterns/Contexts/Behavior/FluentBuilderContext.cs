@@ -7,10 +7,11 @@ namespace Patterns.Contexts
     {
         public void Excecute()
         {
-            User tom = new UserBuilder().SetName("Tom").SetCompany("Microsoft").SetAge(23);
-            User alice = User.CreateBuilder().SetName("Alice").IsMarried.SetAge(25);
+            User user1 = new UserBuilder().SetName("Tom").SetCompany("Microsoft").SetAge(23);
+            User user2 = User.CreateBuilder().SetName("Alice").IsMarried.SetAge(25);
 
-            Console.WriteLine();
+            user1.ShowInfo();
+            user2.ShowInfo();
         }
     }
 }
