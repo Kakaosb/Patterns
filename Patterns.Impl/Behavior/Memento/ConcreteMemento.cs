@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Patterns.Def.Behavior.Memento;
+using System;
 
 namespace Patterns.Impl.Behavior.Memento
 {
-    public class ConcreteMemento
+    public class ConcreteMemento: IMemento
     {
         private string _state;
 
