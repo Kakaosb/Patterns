@@ -41,12 +41,12 @@ namespace Patterns
 
         static void Main(string[] args)
         {
-
             var patternsList = string.Empty;
 
             var i = 1;
 
-            _patterns.ForEach(el => {
+            _patterns.ForEach(el =>
+            {
                 patternsList = $"{patternsList}{i++}. {el.Key} - {el.Discription}\n";
             });
 
@@ -66,7 +66,7 @@ namespace Patterns
         private static void ExcecuteCommand(string command)
         {
             var pattern = _patterns.FirstOrDefault(p => p.Key == command);
-            
+
             if (pattern != null)
             {
                 _context = pattern.GetContextAction();
